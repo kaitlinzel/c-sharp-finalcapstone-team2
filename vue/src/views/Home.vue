@@ -7,17 +7,18 @@
       favorite movies, such as: genre, year released, actors, streaming location, and so much more!</p>
       <div class="container">
         <p>These are a few of our movies.</p>
-        <movie-card/>
+        <!-- <movie-card/> -->
         <movies-list/>
       </div>
   </div>
 </template>
 
 <script>
-import MovieCard from '../components/MovieCard.vue';
+//import MovieCard from '../components/MovieCard.vue';
 import MoviesList from '../components/MoviesList.vue';
 export default {
-  components: { MovieCard, MoviesList },
+  components: { //MovieCard,
+   MoviesList },
   name: "home"
 };
 </script>
