@@ -1,10 +1,10 @@
 <template>
   <div class="card">
-    <h2>
+    <h2 class="movie-title">{{movie.title}}</h2>
+    <!--Get movie image -->
         <router-link v-bind:to="{name:'movie-details', params: {id: movie.id}}">
             {{ movie.title }}
         </router-link>        
-    </h2>
     <!-- <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
     <h3 class="book-author">{{ book.author }}</h3>
     <div class="button-container" v-if="! enableAdd">
@@ -36,5 +36,15 @@ export default {
 </script>
 
 <style>
+.card {
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 250px;
+    height: 550px;
+    margin: 20px;
+}
 
+.card .movie-title {
+    font-size: 1.5rem;
+}
 </style>

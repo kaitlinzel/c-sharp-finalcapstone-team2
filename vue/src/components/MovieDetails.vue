@@ -10,8 +10,23 @@
 </template>
 
 <script>
+import MoviesService from "../services/MoviesService";
 export default {
-
+  name: "movies-service",
+  data() {
+    return {
+      movie: {
+        id: null,
+        name: "",
+        title: "",
+      }
+    };
+  },
+  created() {
+    MoviesService.get(this.$route.params.id).then((response) => {
+      this.movie = response.data;
+    });
+  }
 }
 </script>
 
