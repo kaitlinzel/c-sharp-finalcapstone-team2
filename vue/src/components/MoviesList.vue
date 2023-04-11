@@ -17,7 +17,10 @@ data() {
     };
 },
 methods: {
-
+getMovieById(id) {
+    this.$router.push(`/document/${id}`)
+    console.log(id);
+}
 },
 created() {
     MoviesService.listMovies().then((response) => {
