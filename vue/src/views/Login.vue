@@ -62,10 +62,40 @@ export default {
 </script>
 
 <style scoped>
-.form-input-group {
-  margin-bottom: 1rem;
+
+
+#login
+{
+  height: 100vh;
+  width: 100vh;
+  padding-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
-label {
-  margin-right: 0.5rem;
+h1{
+  padding-bottom: 5vh;
+  width: 100%;
+  white-space: nowrap;
+  text-align: center;
+}
+label
+{
+  width:25vw;
+  white-space: nowrap;
+  text-align: left;
+}
+input
+{
+  margin-bottom: 3vh;;
+  background-color:darkorange;
+}
+button
+{
+margin-top: 5vh;
+margin-bottom: 5vh;
+max-width: fit-content;
+background-color:deeppink;
 }
 </style>
