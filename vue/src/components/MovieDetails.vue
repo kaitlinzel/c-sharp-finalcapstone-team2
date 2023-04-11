@@ -12,7 +12,7 @@
 <script>
 import MoviesService from "../services/MoviesService";
 export default {
-  name: "movies-service",
+  name: "movie-details",
   data() {
     return {
       movie: {
