@@ -1,7 +1,10 @@
 <template>
   <div class="movie-container">
       <h1>Movies</h1>
-      <li v-for="movie in movies" :key="movie.id">{{movie.original_title}}</li>
+      <li v-for="movie in movies" :key="movie.id">{{movie.original_title}}
+          <img v-bind:src="'https://image.tmdb.org/t/p/w185' + movie.poster_path">
+          <!-- {{movie.poster_path}} gets literal path -->
+        </li>
       <p>AAAA</p>
       </div>
 </template>
