@@ -1,7 +1,7 @@
 <template>
   <div class="movie-container">
       <li v-for="movie in movies" :key="movie.id">{{movie.original_title}}
-          <img v-bind:src="'https://image.tmdb.org/t/p/w185' + movie.poster_path">
+          <img class="poster" v-bind:src="'https://image.tmdb.org/t/p/w185' + movie.poster_path">
           <!-- {{movie.poster_path}} gets literal path -->
         </li>
       </div>
@@ -28,5 +28,12 @@ created() {
 </script>
 
 <style>
+.movie-container {
+     margin: 5px;
+}
+li {
+    list-style: none;
+}
+
 
 </style>

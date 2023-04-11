@@ -26,6 +26,20 @@ export default {
 </script>
 
 <style scoped>
+* {
+    box-sizing: border-box;
+}
+html, body, div, img {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font-family: fantasy;
+    vertical-align: baseline;
+}
+body {
+   line-height: 1;
+}
 h1 {
    display: flex;
    justify-content: right;
@@ -35,14 +49,6 @@ h1 {
   padding: 5px;
   display: flex;
   justify-content: space-around;
-}
-.container { 
-  width: 350px;
-  padding: 5px;
-  margin: 5px;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
 }
 p.movie_list {
   display: flex;
@@ -56,5 +62,11 @@ img.user_icon {
   background: rgb(12, 79, 223);
   border-radius: 50%;
   padding: 5px;
+}
+.container { 
+  width: 350px;
+  margin: 5px;
+  padding: 5px;
+  display: flex;
 }
 </style>
