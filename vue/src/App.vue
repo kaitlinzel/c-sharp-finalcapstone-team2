@@ -121,6 +121,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
   color: rgb(50, 20, 185);
 }
 .cont {

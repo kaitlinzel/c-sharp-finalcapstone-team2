@@ -28,6 +28,5 @@ data() {
 <style>
 .setPlaylist {
   display: flex;
-  
 }
 </style>
