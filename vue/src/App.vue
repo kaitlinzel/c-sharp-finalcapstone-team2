@@ -1,12 +1,15 @@
 <template>
   <div id="app">
     <div id="nav">
+
       <router-link class="home" v-bind:to="{ name: 'home' }">Home</router-link>
       <router-link class="logout" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''"
         >Logout</router-link>
-      <p class="suggested">Movies For You</p>
+      <p class="for-you"><router-link v-bind:to="{name: 'playlist'}">For You</router-link></p>
       <p class="cont">Continue Watching</p>
       <p class="genre">Genres</p>
+
+
       <p class="search">Search:</p>
       <p class="welcome">
       Welcome User
@@ -75,7 +78,7 @@
   color: rgb(50, 20, 185);
   
 }
-.suggested {
+.for-you {
   grid-column: 3/4;
   grid-row: 1;
   border: 5px solid orangered;
