@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import MovieDetails from '../views/MovieDetails'
+import PlayWatchList from '../views/PlayWatchList'
 
 Vue.use(Router)
 
@@ -58,6 +59,14 @@ const router = new Router({
       path: '/movie/:id',
       name: 'movie-details',
       component: MovieDetails
+    },
+    {
+      path: '/playlist',
+      name: 'playlist',
+      component: PlayWatchList,
+      meta: {
+        requiresAuth: true
+      }
     }
   ]
 })
