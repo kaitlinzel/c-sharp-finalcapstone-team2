@@ -66,6 +66,7 @@ export default {
 
 #login
 {
+  margin: auto;
   height: 100vh;
   width: 100vh;
   padding-top: 10vh;
@@ -82,7 +83,7 @@ h1{
 }
 label
 {
-  width:25vw;
+  width:10vw;
   white-space: nowrap;
   text-align: left;
 }
