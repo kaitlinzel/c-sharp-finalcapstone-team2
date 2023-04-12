@@ -6,6 +6,7 @@
       <router-link class="logout" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''"
         >Logout</router-link>
       <p class="for-you"><router-link v-bind:to="{name: 'playlist'}">For You</router-link></p>
+      <p class="genre"><router-link v-bind:to="{name: 'genre'}">Browse By Genre</router-link></p>
       <div class="dropdown show">
   <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Dropdown link

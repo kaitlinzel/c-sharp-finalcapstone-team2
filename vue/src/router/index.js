@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import MovieDetails from '../views/MovieDetails'
 import PlayWatchList from '../views/PlayWatchList'
+import GenreBrowse from '../views/GenreBrowse'
 
 Vue.use(Router)
 
@@ -59,6 +60,11 @@ const router = new Router({
       path: '/movie/:id',
       name: 'movie-details',
       component: MovieDetails
+    },
+    {
+      path: '/genre/',
+      name: 'genre',
+      component: GenreBrowse
     },
     {
       path: '/playlist',
