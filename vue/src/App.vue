@@ -4,10 +4,25 @@
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
     </div>
-    <input class="filter" type="text" v-model=filterText placeholder="Search..." />
+    <input class="filter" type="text" v-model=filteredData placeholder="Search..." />
+
     <router-view />
+    <div>
+      <search-bar/> 
+      
+    </div>
   </div>
+  
 </template>
+<script>
+import SearchBar from './components/SearchBar.vue'
+
+
+export default {
+  components: { SearchBar }
+}
+</script>
+
 
 <style scoped>
 
