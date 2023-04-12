@@ -4,7 +4,7 @@
         <!-- <movie-card/> -->
         <movies-list class="movie-list"/> 
         </div>
-    <div class="carousel">
+    <div class="carousel"><!-- saving space to build in carousel functionality here -->
   </div>
    </div>
 </template>
@@ -33,6 +33,7 @@ export default {
 }
 .movie-list {
   border: 5px solid yellow;
+  /* need to find a way to loop through all the movies and display them as seperate elements so they can be manipulated */
 }
 
 </style>

@@ -5,7 +5,7 @@
       <router-link class="home" v-bind:to="{ name: 'home' }">Home</router-link>
       <router-link class="logout" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''"
         >Logout</router-link>
-      <p class="for-you"><router-link v-bind:to="{name: 'playlist'}">For You</router-link></p>
+      <router-link class="for-you" v-bind:to="{name: 'playlist'}">For You</router-link>
       <p class="cont">Continue Watching</p>
       <p class="genre">Genres</p>
 
@@ -85,6 +85,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
   color: rgb(50, 20, 185);
 }
 .cont {
