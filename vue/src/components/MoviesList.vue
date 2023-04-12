@@ -1,6 +1,6 @@
 <template>
   <div class="movie-container">
-      <li v-for="movie in movies" :key="movie.id">{{movie.original_title}}
+      <li v-for="movie in movies" :key="movie.id">
           <!-- <router-link v-bind:to="{name: 'movie-details', params: {id: movie.id}}"> -->
           <img class="poster" v-bind:src="'https://image.tmdb.org/t/p/w185' + movie.poster_path" v-on:click="getMovieById(movie.id)">           
           <!-- </router-link> -->
