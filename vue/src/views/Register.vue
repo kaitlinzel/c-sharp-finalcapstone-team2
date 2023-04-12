@@ -77,6 +77,7 @@ export default {
 
 #register
 {
+  margin: auto;
   height: 100vh;
   width: 100vh;
   padding-top: 10vh;
@@ -95,7 +96,7 @@ form h1{
 }
 label
 {
-  width:25vw;
+  width: 10vw;
   white-space: nowrap;
   text-align: left;
 }
