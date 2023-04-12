@@ -4,7 +4,7 @@
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''"
         >Logout</router-link>&nbsp;|&nbsp;
-      <p class="for-you">Movies For You</p>&nbsp;|&nbsp;
+      <p class="for-you"><router-link v-bind:to="{name: 'playlist'}">For You</router-link></p>&nbsp;|&nbsp;
       <p class="cont">Continue Watching</p>&nbsp;|&nbsp;
       <p class="genre">Genres</p>&nbsp;|&nbsp;
       <p class="search">Search:</p>
