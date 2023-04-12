@@ -20,7 +20,7 @@ data() {
 },
 methods: {
 getMovieById(id) {
-    this.$router.push(`/document/${id}`)
+    this.$router.push(`/movie/${id}`)
     console.log(id);
 }
 },

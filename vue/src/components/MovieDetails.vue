@@ -23,7 +23,7 @@ export default {
     };
   },
   created() {
-    MoviesService.get(this.$route.params.id).then((response) => {
+    MoviesService.getMovieById(this.$route.params.id).then((response) => {
       this.movie = response.data;
     });
   }
