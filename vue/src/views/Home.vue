@@ -1,13 +1,12 @@
 <template>
   <div class="home">
-    <p class="movie-list">These are a few of our movies.</p>
+     <div class="grid-container">
         <!-- <movie-card/> -->
-        <movies-list /> 
+        <movies-list class="movie-list"/> 
+        </div>
     <div class="carousel">
-      
-    </div>
   </div>
-   
+   </div>
 </template>
 
 <script>
@@ -24,11 +23,16 @@ export default {
 </script>
 
 <style scoped>
-* {
-  box-sizing: border-box;
-}
-p.movie_list {
+.grid-container {
   display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  font-size: 100%;
+  font-family: fantasy;
+  border: 5px solid white;
+}
+.movie-list {
+  border: 5px solid yellow;
 }
 
 </style>
