@@ -1,35 +1,107 @@
 <template>
   <div class="home">
     <h1>
-      Welcome User 
-      <!-- want to be able to input the logged in users name in here-->
-      <img 
+      Welcome User
+      <!-- want to be able to input the logged in users name in here && need to put space inbetween the username and the avatar-->
+      <img
         class="user_icon"
         src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
       />
     </h1>
-    <div class="nav">
-      <h2 class="for_you">Movies For You</h2>
+    <div class="filter-options">
+      <h2 class="for-you">Movies For You</h2>
       <h2 class="cont">Continue Watching</h2>
       <h2 class="genre">Genres</h2>
     </div>
-    <p class="movie_list">These are a few of our movies.</p>
-    <div class="container">
-      <!-- <movie-card/> -->
-      <movies-list />
+    <p class="movie-list">These are a few of our movies.</p>
+    <div class="carousel">
+      <div class="inner" ref="inner" :style="innerStyles">
+        <div class="movies" v-for="movie in movies" :key="movie">
+          {{ movie }}
+        </div>
+        <!-- <movie-card/> -->
+        <movies-list />
+      </div>
     </div>
+    <button @click="prev">prev</button>
+    <button @click="next">next</button>
   </div>
 </template>
 
 <script>
 //import MovieCard from '../components/MovieCard.vue';
 import MoviesList from "../components/MoviesList.vue";
+
 export default {
   components: {
     //MovieCard,
     MoviesList,
   },
   name: "home",
+  data() {
+    return {
+      innerStyles: {},
+      step: "",
+      transitioning: false,
+    };
+  },
+  mounted() {
+    this.setStep(), this.resetTranslate();
+  },
+  methods: {
+    setStep() {
+      const innerWidth = this.$refs.inner.scrollWidth;
+      const totalMovies = this.movies.length;
+      this.step = `${innerWidth / totalMovies}px`;
+    },
+    next() {
+      if (this.transitioning) return;
+      this.transitioning = true;
+      this.moveLeft();
+      this.afterTransition(() => {
+        const card = this.cards.shift();
+        this.cards.push(card);
+        this.resetTranslate();
+        this.transitioning = false;
+      });
+    },
+    prev() {
+      if (this.transitioning) return;
+      this.transitioning = true;
+      this.moveRight();
+      this.afterTransition(() => {
+        const movie = this.movies.pop();
+        this.movies.unshift(movie);
+        this.resetTranslate();
+        this.transitioning = false;
+      });
+    },
+    moveLeft() {
+      this.innerStyles = {
+        transform: `translateX(-${this.step}) 
+    translateX(-${this.step})`,
+      };
+    },
+    moveRight() {
+      this.innerStyles = {
+        transform: `translateX(${this.step}) 
+      translateX(-${this.step})`,
+      };
+    },
+    afterTransition(callback) {
+      const listener = () => {
+        callback();
+        this.$refs.inner.removeEventListener("transitionend", listener);
+      };
+      this.$refs.inner.addEventListener("transitionend", listener);
+    },
+    resetTranslate() {
+      this.innerStyles = {
+        transition: "none",
+        transform: `translateX(-${this.step})`,
+      };
+    },
+  },
 };
 </script>
 
@@ -37,8 +109,6 @@ export default {
 * {
   box-sizing: border-box;
 }
-html,
-body,
 div,
 img {
   margin: 0;
@@ -47,9 +117,6 @@ img {
   font-size: 100%;
   font-family: fantasy;
   vertical-align: baseline;
-}
-body {
-  line-height: 1;
 }
 h1 {
   display: flex;
@@ -80,5 +147,22 @@ img.user_icon {
   margin: 5px;
   padding: 5px;
   display: flex;
+}
+.carousel {
+  width: 170px;
+  overflow: hidden;
+}
+.inner {
+  white-space: nowrap;
+  transition: transform 0.2s;
+}
+.movie {
+  width: 40px;
+  margin-right: 10px;
+  display: inline-flex;
+}
+button {
+  margin-right: 5px;
+  margin-top: 10px;
 }
 </style>
