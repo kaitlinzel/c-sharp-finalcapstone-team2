@@ -8,7 +8,12 @@
       <p>Release date: {{ movie.release_date }}</p>
       <p>Runtime: {{ movie.runtime}} mins</p>
       <p>Revenue: ${{movie.revenue.toLocaleString("en-US") }}</p>
-      <p v-if="movie.homepage">Homepage: <a :href="movie.homepage">{{ movie.homepage }}</a></p>
+      <p v-if="movie.homepage">Homepage: <a :href="movie.homepage">{{ movie.homepage }}</a></p>      
+      <h4>Genres</h4>
+      <ul>
+        <li v-for="genre in movie.genres" :key="genre.id">{{ genre.name }}</li>
+      </ul>
+      
 
 
     <!-- <h2 class="book-author">{{ book.author }}</h2>
