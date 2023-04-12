@@ -5,9 +5,45 @@
       <router-link class="home" v-bind:to="{ name: 'home' }">Home</router-link>
       <router-link class="logout" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''"
         >Logout</router-link>
-      <router-link class="for-you" v-bind:to="{name: 'playlist'}">For You</router-link>
-      <p class="cont">Continue Watching</p>
-      <p class="genre">Genres</p>
+      <p class="for-you"><router-link v-bind:to="{name: 'playlist'}">For You</router-link></p>
+      <div class="dropdown show">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown link
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
+<div class="genredropdown">
+     <button class="genre" href="#">Genres
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Action</a>
+      <a href="#">Thriller</a>
+      <a href="#">Comedy</a>
+      <a href="#">Mystery</a>
+      <a href="#">Children's Movies</a>
+      <a href="#">Romance</a>
+      <a href="#">Horror</a>
+      <a href="#">Independent Films</a>
+      <a href="#">International Films</a>
+    </div>
+    </div>
+   
+    <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
 
 
       <p class="search">Search:</p>
@@ -142,4 +178,27 @@ a:hover {
 a:active {
   background-color: rgb(33, 12, 219);
 } 
+
+.genredropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+}
+.dropdown-content a{
+  float: none;
+  display: block;
+  text-align: left;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: black;
+}
+
+.genredropdown:hover .dropdown-content {
+  display: block;
+}
 </style>
