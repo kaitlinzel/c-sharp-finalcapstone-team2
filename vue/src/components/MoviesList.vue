@@ -1,11 +1,13 @@
 <template>
   <div class="movie-container">
-      <h1>Movies</h1>
       <li v-for="movie in movies" :key="movie.id">{{movie.original_title}}
-          <img v-bind:src="'https://image.tmdb.org/t/p/w185' + movie.poster_path" v-on:click="getMovieById(movie.id)">
+          <!-- <router-link v-bind:to="{name: 'movie-details', params: {id: movie.id}}"> -->
+          <img class="poster" v-bind:src="'https://image.tmdb.org/t/p/w185' + movie.poster_path" v-on:click="getMovieById(movie.id)">           
+          <!-- </router-link> -->
+          <p>{{movie.original_title}} | 
+                {{movie.release_date}}</p>
           <!-- {{movie.poster_path}} gets literal path -->
         </li>
-      <p>AAAA</p>
       </div>
 </template>
 
@@ -21,7 +23,7 @@ data() {
 methods: {
 getMovieById(id) {
     this.$router.push(`/movie/${id}`)
-    console.log(id);
+    //console.log(id);
 }
 },
 created() {
@@ -33,5 +35,12 @@ created() {
 </script>
 
 <style>
+.movie-container {
+     margin: 5px;
+}
+li {
+    list-style: none;
+}
+
 
 </style>

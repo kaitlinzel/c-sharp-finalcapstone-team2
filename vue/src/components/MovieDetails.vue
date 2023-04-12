@@ -1,8 +1,16 @@
 <template>
     <div>
-    <h2>
-        {{ movie.title }}
-    </h2>    
+      <h2>
+          {{ movie.title }}
+      </h2>
+      <img v-bind:src="'https://image.tmdb.org/t/p/w185' + movie.poster_path">
+      <p>Overview: {{ movie.overview }}</p>
+      <p>Release date: {{ movie.release_date }}</p>
+      <p>Runtime: {{ movie.runtime}} mins</p>
+      <p>Revenue: ${{movie.revenue.toLocaleString("en-US") }}</p>
+      <p v-if="movie.homepage">Homepage: <a :href="movie.homepage">{{ movie.homepage }}</a></p>
+
+
     <!-- <h2 class="book-author">{{ book.author }}</h2>
     <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
     <p>I have {{ book.read ? '' : "not" }} read this book</p> -->
@@ -12,7 +20,7 @@
 <script>
 import MoviesService from "../services/MoviesService";
 export default {
-  name: "movies-service",
+  name: "movie-details",
   data() {
     return {
       movie: {
@@ -24,6 +32,7 @@ export default {
   },
   created() {
     MoviesService.getMovieById(this.$route.params.id).then((response) => {
+      console.log(this.$route.params.id);
       this.movie = response.data;
     });
   }
