@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import MovieDetails from '../views/MovieDetails'
 import PlayWatchList from '../views/PlayWatchList'
+import UserProfile from '../views/UserProfile'
 
 Vue.use(Router)
 
@@ -64,6 +65,13 @@ const router = new Router({
       path: '/playlist',
       name: 'playlist',
       component: PlayWatchList,
+      meta: {
+        requiresAuth: true}
+    },
+    {
+      path: '/profile',
+      name: 'user-profile',
+      component: UserProfile,
       meta: {
         requiresAuth: true
       }

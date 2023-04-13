@@ -77,7 +77,8 @@
       placeholder="Search Here"
     />
     <button id="userBtn">
-      Welcome User
+       <router-link v-bind:to="{ name: 'user-profile' }"> Welcome User</router-link>
+     
       <!-- want to be able to input the logged in users name in here-->
       <img
         class="user_icon"
@@ -104,7 +105,7 @@ export default {
 #nav {
   display: grid;
   width: 100%;
-  height:100%;
+  height: 100%;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 2, 1fr;
   padding: 10px;

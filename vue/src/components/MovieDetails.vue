@@ -1,22 +1,20 @@
 <template>
-    <div class="details">
-           <nav-bar class=nav></nav-bar>
-
-      <h2>
-          {{ movie.title }}
-      </h2>
-      <img v-bind:src="'https://image.tmdb.org/t/p/w185' + movie.poster_path">
-      <p>Overview: {{ movie.overview }}</p>
-      <p>Release date: {{ movie.release_date }}</p>
-      <p>Runtime: {{ movie.runtime}} mins</p>
-      <p>Revenue: ${{movie.revenue.toLocaleString("en-US") }}</p>
-      <p v-if="movie.homepage">Homepage: <a :href="movie.homepage">{{ movie.homepage }}</a></p>      
-      <h4>Genres</h4>
-      <ul>
-        <li v-for="genre in movie.genres" :key="genre.id">{{ genre.name }}</li>
-      </ul>
-      
-
+  <div class="details">
+    <h2>
+      {{ movie.title }}
+    </h2>
+    <img v-bind:src="'https://image.tmdb.org/t/p/w185' + movie.poster_path" />
+    <p>Overview: {{ movie.overview }}</p>
+    <p>Release date: {{ movie.release_date }}</p>
+    <p>Runtime: {{ movie.runtime }} mins</p>
+    <p>Revenue: ${{ movie.revenue.toLocaleString("en-US") }}</p>
+    <p v-if="movie.homepage">
+      Homepage: <a :href="movie.homepage">{{ movie.homepage }}</a>
+    </p>
+    <h4>Genres</h4>
+    <ul>
+      <li v-for="genre in movie.genres" :key="genre.id">{{ genre.name }}</li>
+    </ul>
 
     <!-- <h2 class="book-author">{{ book.author }}</h2>
     <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
@@ -26,7 +24,6 @@
 
 <script>
 import MoviesService from "../services/MoviesService";
-import NavBar from "../components/NavBar.vue"
 export default {
   name: "movie-details",
   data() {
@@ -35,7 +32,7 @@ export default {
         id: null,
         name: "",
         title: "",
-      }
+      },
     };
   },
   created() {
@@ -44,19 +41,17 @@ export default {
       this.movie = response.data;
     });
   },
-  components:{
-    NavBar
-  }
-}
+  components: {},
+};
 </script>
 
 <style>
-.details{
-display: grid;
-height: 100vh;
-width: 100vh;
-align-items: center;
-justify-items: center;
-margin: auto;
+.details {
+  display: grid;
+  height: 100vh;
+  width: 100vh;
+  align-items: center;
+  justify-items: center;
+  margin: auto;
 }
 </style>
