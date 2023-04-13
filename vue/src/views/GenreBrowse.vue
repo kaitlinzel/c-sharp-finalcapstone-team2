@@ -1,22 +1,29 @@
 <template>
-  <div></div>
+  <div>
+      List of Genres
+      <li v-for="genre in genres" :key="genre.id">
+      {{ genre.name }}
+      </li>
+  </div>
 </template>
 
 <script>
 import MoviesService from "../services/MoviesService";
 
 export default {
-  data() {
-    return {
-      genres: [],
-    };
-  },
-  methods: {
-    getAllGenres() {
-      MoviesService.getMovieByGenre(); //change this method to get a list of all genres
+    name: "genre-browse",
+    data() {
+        return {
+            genres: []
+        }
     },
-  },
-};
+    created() {    
+        MoviesService.getAllGenres().then((response) => {
+        this.genres = response.data.genres;
+        });
+    }
+
+}
 </script>
 
 <style>
