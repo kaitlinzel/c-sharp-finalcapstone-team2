@@ -1,5 +1,7 @@
 <template>
-    <div>
+    <div class="details">
+           <nav-bar class=nav></nav-bar>
+
       <h2>
           {{ movie.title }}
       </h2>
@@ -24,6 +26,7 @@
 
 <script>
 import MoviesService from "../services/MoviesService";
+import NavBar from "../components/NavBar.vue"
 export default {
   name: "movie-details",
   data() {
@@ -40,10 +43,20 @@ export default {
       console.log(this.$route.params.id);
       this.movie = response.data;
     });
+  },
+  components:{
+    NavBar
   }
 }
 </script>
 
 <style>
-
+.details{
+display: grid;
+height: 100vh;
+width: 100vh;
+align-items: center;
+justify-items: center;
+margin: auto;
+}
 </style>

@@ -1,6 +1,7 @@
 <template>
   <div class="home">
      <div class="grid-container">
+            <nav-bar class=nav></nav-bar>
         <!-- <movie-card/> -->
         <movies-list class="movie-list"/> 
         </div>
@@ -12,11 +13,12 @@
 <script>
 //import MovieCard from '../components/MovieCard.vue';
 import MoviesList from "../components/MoviesList.vue";
-
+import NavBar from "../components/NavBar.vue"
 export default {
   components: {
     //MovieCard,
     MoviesList,
+    NavBar,
   },
   name: "home"
 };
