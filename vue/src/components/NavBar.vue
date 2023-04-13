@@ -34,7 +34,7 @@
       </div>
     </div> -->
     <div class="genredropdown">
-      <button id="genreBtn" href="#" > 
+      <button id="genreBtn" href="#">
         Genres
         <i class="fa fa-caret-down"></i>
         <!--What does this do?-->
@@ -76,14 +76,14 @@
       v-model="filteredData"
       placeholder="Search Here"
     />
-    <p class="welcome">
+    <button id="userBtn">
       Welcome User
       <!-- want to be able to input the logged in users name in here-->
       <img
         class="user_icon"
         src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
       />
-    </p>
+    </button>
 
     <router-view />
     <div>
@@ -100,15 +100,16 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 #nav {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  width: 100%;
+  height:100%;
+  grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 2, 1fr;
-  gap: 10px;
+  padding: 10px;
   font-size: 100%;
   font-family: fantasy;
-  border: 5px solid white;
   background-color: rgb(210, 130, 230);
 }
 button {
@@ -118,6 +119,8 @@ button {
   justify-content: center;
   color: rgb(50, 20, 185);
   grid-row: 1;
+  height: 100%;
+  width: 100%;
 }
 #homeBtn {
   grid-column: 1/2;
@@ -128,14 +131,12 @@ button {
 #forYouBtn {
   grid-column: 3/4;
 }
+#genreBtn {
+  grid-column: 4/5;
+}
 .genredropdown {
   float: left;
   overflow: hidden;
-  grid-column: 4/5;
-}
-#genreBtn{
-    height: 100%;
-    width: 100%;
 }
 .dropdown-content {
   display: none;
@@ -153,29 +154,21 @@ button {
   display: block;
 }
 
-.search {
-  grid-column: 6/7;
+input {
   grid-row: 1;
-  border: 5px solid orangered;
+  grid-column: 5/6;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  border: 5px solid orangered;
+  text-align: center;
   color: rgb(50, 20, 185);
 }
-.welcome {
-  grid-column: 7/8;
-  grid-row: 1;
-  border: 5px solid orangered;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  color: rgb(50, 20, 185);
+#userBtn {
+  grid-column: 6/7;
 }
 
 img.user_icon {
-  display: flex;
-  justify-content: right;
+  justify-self: flex-end;
+  margin-left: 10px;
   width: 50px;
   height: 50px;
   background: rgb(12, 79, 223);
